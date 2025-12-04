@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кристина</title>
+  
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Декоративные парящие точки -->
+  <div class="deco-dot" style="--x: 10%; --y: 20%; --size: 8px; --delay: 0s;"></div>
+  <div class="deco-dot" style="--x: 90%; --y: 35%; --size: 6px; --delay: 2s;"></div>
+  <div class="deco-dot" style="--x: 85%; --y: 70%; --size: 10px; --delay: 4s;"></div>
+  <div class="deco-dot" style="--x: 15%; --y: 80%; --size: 5px; --delay: 1s;"></div>
+
+  <div class="container">
+    <!-- Главная -->
+    <section id="home" class="page active">
+      <h1 class="name">Кистиночка</h1>
+      <p class="subtitle">Ты наполняешь мою жизнь чувствами, которые были давно подавлены.</p>
+      <div class="buttons">
+        <button class="btn" data-target="inner">Внутренние красоты</button>
+        <button class="btn" data-target="outer">Внешние красоты</button>
+      </div>
+      <!-- Футер -->
+      <footer class="page-footer">
+        <div class="footer-content">
+          <p>Ты — мой вдох и выдох, Кристина.</p>
+          <div class="footer-heart">❦</div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Внутренние -->
+    <section id="inner" class="page">
+      <h2>Твой внутренний свет</h2>
+      <ul class="qualities-list">
+        <li data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">Ты не просто говоришь — ты умеешь слушать. По-настоящему слышать.</li>
+        <li data-aos="fade-up" data-aos-delay="80" data-aos-duration="800">Ты прямолинейна и искренна — никогда не притворяешься кем-то другим.</li>
+        <li data-aos="fade-up" data-aos-delay="160" data-aos-duration="800">Ты невероятно добра — иногда даже слишком, до трогательности.</li>
+        <li data-aos="fade-up" data-aos-delay="240" data-aos-duration="800">Ты сильная: даже в потоке негатива продолжаешь идти вперёд.</li>
+        <li data-aos="fade-up" data-aos-delay="320" data-aos-duration="800">Ты по-настоящему заботишься — не словами, а каждым своим действием.</li>
+        <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">Рядом с тобой — спокойно. Ты излучаешь доверие, как тёплый свет.</li>
+        <li data-aos="fade-up" data-aos-delay="480" data-aos-duration="800">Ты знаешь, что такое настоящая поддержка — та, что не требует слов.</li>
+        <li data-aos="fade-up" data-aos-delay="560" data-aos-duration="800">Твоя лень — гениальна: ты всегда найдёшь самый мягкий и умный путь.</li>
+      </ul>
+      <button class="back-btn" data-target="home">← Назад к тебе</button>
+      <!-- Футер -->
+      <footer class="page-footer">
+        <div class="footer-content">
+          <p>Ты — мой вдох и выдох, Кристина.</p>
+          <div class="footer-heart">❦</div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Внешние -->
+    <section id="outer" class="page">
+      <h2>Твоё внешнее очарование</h2>
+      <ul class="qualities-list">
+        <li data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">Твой аромат — как заклинание, от которого невозможно оторваться.</li>
+        <li data-aos="fade-up" data-aos-delay="80" data-aos-duration="800">Твои глаза — в них хочется утонуть. Они живые, глубокие, настоящие.</li>
+        <li data-aos="fade-up" data-aos-delay="160" data-aos-duration="800">Твои волосы — будто сотканы из солнца и ветра. Они парят, как в сказке.</li>
+        <li data-aos="fade-up" data-aos-delay="240" data-aos-duration="800">Твой носик — милый, аккуратный, идеальный в своей простоте.</li>
+        <li data-aos="fade-up" data-aos-delay="320" data-aos-duration="800">Твоя кожа — гладкая и нежная, как первый луч утра.</li>
+        <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">Твоя фигура — гармония, а не просто красота.</li>
+        <li data-aos="fade-up" data-aos-delay="480" data-aos-duration="800">Твои руки — эстетика в движении. Их не хочется отпускать.</li>
+        <li data-aos="fade-up" data-aos-delay="560" data-aos-duration="800">А ноги?.. Уверен — совершенство. (Жаль не видел...)</li>
+        <li class="final-note" data-aos="fade-up" data-aos-delay="640" data-aos-duration="900">
+          Прочитав данную строку вы целиком и полностью соглашаетесь со всем вышесказанным. Данный пункт обжалованию не подлежит.<br>
+          <small>— согласно Андрееву Закону, Ст. 1, П1, часть 1</small>
+        </li>
+      </ul>
+      <button class="back-btn" data-target="home">← Назад к тебе</button>
+      <!-- Футер -->
+      <footer class="page-footer">
+        <div class="footer-content">
+          <p>Ты — мой вдох и выдох, Кристина.</p>
+          <div class="footer-heart">❦</div>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <!-- Скрипты -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

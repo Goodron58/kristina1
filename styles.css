@@ -1,0 +1,307 @@
+/* ========================
+   ОБЩИЕ СТИЛИ
+======================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fdf9fb 0%, #f5eeff 100%);
+  color: #2c2c2c;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Декоративные парящие точки */
+.deco-dot {
+  position: fixed;
+  width: calc(var(--size, 6px) * 1px);
+  height: calc(var(--size, 6px) * 1px);
+  background: #d16ba5;
+  border-radius: 50%;
+  opacity: 0.3;
+  pointer-events: none;
+  animation: float 12s infinite ease-in-out;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 10%);
+  top: var(--y, 10%);
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* ========================
+   КОНТЕЙНЕР И СТРАНИЦЫ
+======================== */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 50px 20px 120px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.95);
+  filter: blur(4px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    filter 0.5s ease,
+    visibility 0.5s;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+  filter: blur(0);
+  z-index: 10;
+}
+
+/* ========================
+   АНИМАЦИИ ПОЯВЛЕНИЯ
+======================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Элементы разделов */
+h2,
+.qualities-list li,
+.back-btn,
+.final-note {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Элементы главной страницы (будут анимироваться отдельно) */
+#home .name,
+#home .subtitle,
+#home .buttons,
+#home .page-footer {
+  opacity: 0;
+  animation: fadeInStagger 0.8s ease forwards;
+}
+
+#home .name { animation-delay: 0.2s; }
+#home .subtitle { animation-delay: 0.4s; }
+#home .buttons { animation-delay: 0.6s; }
+#home .page-footer { animation-delay: 0.9s; }
+
+/* ========================
+   ШАПКА
+======================== */
+
+.name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.6rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #b84fa3;
+  letter-spacing: 1.2px;
+  text-shadow: 0 2px 6px rgba(184, 79, 163, 0.1);
+  animation: breathe 8s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #6a6a6a;
+  margin-bottom: 45px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ========================
+   КНОПКИ
+======================== */
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn, .back-btn {
+  padding: 16px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  background: white;
+  color: #b84fa3;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 6px 20px rgba(184, 79, 163, 0.15);
+  transition: all 0.35s ease;
+}
+
+.btn:hover, .back-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(184, 79, 163, 0.25);
+  background: #fff8fc;
+}
+
+.back-btn {
+  margin-top: 30px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.05rem;
+}
+
+/* ========================
+   СПИСКИ
+======================== */
+
+.qualities-list {
+  list-style: none;
+  padding: 20px 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qualities-list li {
+  padding: 16px 24px 16px 40px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  border-left: 3px solid #e9b6d4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.qualities-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d16ba5;
+  font-size: 1rem;
+}
+
+.final-note {
+  font-weight: 600;
+  color: #c2185b;
+  text-align: center;
+  padding: 24px !important;
+  background: rgba(255, 240, 245, 0.9) !important;
+  border-radius: 20px;
+  border-left: none !important;
+}
+
+.final-note::before {
+  display: none;
+}
+
+.final-note small {
+  display: block;
+  margin-top: 10px;
+  font-weight: normal;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #a54792;
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+/* ========================
+   ФУТЕР
+======================== */
+
+.page-footer {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.footer-content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #a54792;
+  margin-bottom: 20px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.footer-heart {
+  font-size: 1.8rem;
+  color: #c2185b;
+  margin-top: 10px;
+  line-height: 1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ========================
+   АДАПТИВНОСТЬ
+======================== */
+
+@media (max-width: 600px) {
+  .name { font-size: 2.6rem; }
+  .subtitle { font-size: 1.05rem; }
+  h2 { font-size: 2rem; }
+  .btn, .back-btn { padding: 14px 24px; font-size: 1.05rem; }
+  .qualities-list li { font-size: 1rem; padding-left: 36px; }
+  .page { padding: 40px 15px 110px; }
+  .footer-content p { font-size: 1.2rem; }
+}
